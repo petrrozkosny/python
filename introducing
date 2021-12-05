@@ -1,0 +1,60 @@
+import argparse
+
+parser = argparse.ArgumentParser(description='Personal information')
+print(type(parser))
+parser.add_argument('--n', dest='name', type=str)
+args = parser.parse_args()
+
+print(f'Hello {args.name}')
+
+
+'''
+Hi, I'm comment. It is a good idea to comment your code so you can come back to it and change it more smoothly.
+Comments also make it easier for your colleagues to understand the code.
+It does not matter what do you mention in a comment since comments do not influence the code itself.
+'''
+
+# import of a module
+import os
+
+#variable type of string
+name = 'Petr'
+#variable type integer
+number_of_students = 5
+
+#function with keyword argument who
+def greetings(who=None):
+    #function print with positional argument in it
+    print(f'Hi {who}')
+
+#class
+class Person: 
+
+    #method
+    def greet(self,name):
+        print(f'Hi, {name}, nice to meet you')
+    #method
+    def ask_question(self):
+        print(f'How are you?')
+
+# function call
+greetings('Everybody')
+
+#class methods call
+Person().greet(name)
+Person().ask_question()
+
+#changing value of a variable
+name = input('What is your name? : ')
+Person().greet(name)
+
+if name != 'Petr':
+    # In Python, we separate block of codes by indentation
+    print('I hoped it would be you!')
+elif name == 'Petr':
+    print('Where is the other guy?')
+    # Another indentation since is another block of code
+    if number_of_students >= 5:
+        print('I see there is a quite audience today, hope everyghing will go smoothly ')
+# The code ends here, all variables values are erased, an user or script has nowhere to continue
+
