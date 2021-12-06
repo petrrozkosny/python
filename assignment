@@ -1,0 +1,20 @@
+1 Import modules
+1.1 datetime
+1.2 pa
+ndas and give it an alias pd
+
+2 Create variables and store value in them:
+2.1 n = Store current date and time by using method datetime.datetime.now() of module datetime
+2.2 language = 'Python'
+3 Print text which contains: {Current datetime} I am in a {language} course
+
+4  Visit this page https://en.wikipedia.org/wiki/List_of_largest_cities
+
+5 Create variables
+5.1 A list with TOP 5 cities by population
+5.2. A dictionary with TOP 5 cities by population and their countries
+
+6 Print out a first city in your list
+7 Print each city in your list and append a text 'is a big city' to it
+8 Iterate over the dictionary and print
+{city} in {country} is a big city
