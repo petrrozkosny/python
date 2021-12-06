@@ -1,13 +1,3 @@
-import argparse
-
-parser = argparse.ArgumentParser(description='Personal information')
-print(type(parser))
-parser.add_argument('--n', dest='name', type=str)
-args = parser.parse_args()
-
-print(f'Hello {args.name}')
-
-
 '''
 Hi, I'm comment. It is a good idea to comment your code so you can come back to it and change it more smoothly.
 Comments also make it easier for your colleagues to understand the code.
