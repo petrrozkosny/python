@@ -1,0 +1,123 @@
+
+import datetime as dt
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+
+today = dt.date.today()
+today_month = today.month
+
+'''
+Assignment1
+Create a function which recommends a sure a destionation which is good to go in a month give by a user.
+Since we have a dictionary which does not work with months numbers but seasons, we need to get a seson of a by user given month.
+Then we will look up for that season in the dictionary and then print for user countries and cities which are recommended for a given season.
+If user does not provide a preffered month, we will print for him destionations which are recommended for the season of today (so we need to figure out, which month is today)
+'''
+
+month_number = 3
+if month_number <=3:
+    season = 'spring'
+elif month_number <=6:
+    season = 'summer'
+elif month_number <=9:
+    season = 'fall'
+elif month_number <=12:
+    season = 'winter'
+
+
+destinations = {
+    #key
+    'winter':{
+        #key: # values of type list
+        'germany':['berlin','hannover'],
+        'italy':['bolzano','bergamo'],
+        'france':['nice']},
+    'spring':{
+        'germany':['berlin','munich'],
+        'italy':['florence','milan'],
+        'france':['bordeaux','nice']},
+    'summer':{
+        'germany':['hannover','dresden'],
+        'italy':['bari','rome'],
+        'france':['paris','lyon']},
+
+    'fall':{
+        'germany':['frankfurt am main','munich'],
+        'italy':['palermo','milan'],
+        'france':['paris','marseille']}}
+
+
+
+'''
+Assignment 2
+
+We have got a list of countries user would like to go to no matter the season. Are task is to print to user a list of recommended cities for those countries.
+So we need to iterate both trough user's list and the dictionary. No worries if there are duplicates, a user can live with that
+'''
+list_of_countries = ['france','portugal','spain']
+list_of_recommended_cities = []
+
+'''
+Assignment 3
+Import library request. 
+Then run the code below: variables url and status.
+Print a message:
+    if status is 200 then page works
+    if status is 301 or 302 then page is redirected
+    if status is 403 or 404 then page is not working
+    if status is 501 or 502 then a server is down
+
+'''
+
+
+url = 'https://www.google.com'
+status = requests.get(url).status_code
+
+
+'''
+Assignment 4
+
+Create a function which takes a positional argument. 
+This argument is the name of a country user would like to go to.
+The function just asks wor that destination key value from dictionary destinations which you can find above.
+If there is a KeyError, we will print user a message "I do not have cities for that location", otherwise we print cities for a given location
+
+'''
+
+
+
+'''
+Assignment 5
+Create a function your_age which takes a positional argument year_of_birth
+Then
+1. Calculate a year of today
+2. Substract year_of_birth from year of today
+3. If there is a type error, print "A number expected"
+4. If there is a different type of error, print "Uknown error"
+5. If there is no error, print an output from calculation in step 2
+'''
+
+
+
+'''
+Assignment 6
+
+In the code below, there is a dictionary stored in variable df.
+This dictionary contains information about TOP 10 largest cities in Europe.
+There is a city name, country and population.
+Your task is get familiar with that dictionary structure and then:
+1. Check out whether the value in Officialpopulation key is greather than 2500000 (be sure you've handled data types),
+put that city name into a list largest_cities 
+
+'''
+
+df = pd.read_html('https://en.wikipedia.org/wiki/List_of_European_cities_by_population_within_city_limits')[0]
+df = df[['City','Country','Officialpopulation']]
+df = df[:10]
+df.set_index('City',inplace=True)
+print(df.dtypes)
+# This is the variable which stores a dictionary
+df = df.to_dict(orient='index')
+
